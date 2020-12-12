@@ -1,0 +1,122 @@
+-- https://impulse-hub.xyz/ui-library-docs/
+
+--UI Library-----------------------------------------------------------------------------------------------------------------------------------
+local ui = loadstring(game:HttpGet(‘http://impulse-hub.xyz/library’,true))()
+-----------------------------------------------------------------------------------------------------------------------------------
+
+--Add Tab-----------------------------------------------------------------------------------------------------------------------------------
+local ui = loadstring(game:HttpGet(‘http://impulse-hub.xyz/library’,true))()
+local mainUI = ui:Init(game:GetService(“CoreGui”), “Impulse Hub”)
+local Top = mainUI:AddTab(“Impulse Hub”)
+-----------------------------------------------------------------------------------------------------------------------------------
+
+--Add Section-----------------------------------------------------------------------------------------------------------------------------------
+local ui = loadstring(game:HttpGet(‘http://impulse-hub.xyz/library’,true))()
+local mainUI = ui:Init(game:GetService(“CoreGui”), “Impulse Hub”)
+local Top = mainUI:AddTab(“Impulse Hub”)
+local misctab = Top:AddSection(“Misc”, false)
+-----------------------------------------------------------------------------------------------------------------------------------
+
+--Add Button-----------------------------------------------------------------------------------------------------------------------------------
+local ui = loadstring(game:HttpGet(‘http://impulse-hub.xyz/library’,true))()
+local mainUI = ui:Init(game:GetService(“CoreGui”), “Impulse Hub”)
+local Top = mainUI:AddTab(“Impulse Hub”)
+local misctab = Top:AddSection(“Misc”, false)
+local killallbutton = misctab:AddButton(“killall”, “Kill All”, false, function()
+      Players = game:GetService(“Players”)
+      for i, v in pairs(Players:GetPlayers()) do
+            v.Character:Destroy()
+      end
+end)
+-----------------------------------------------------------------------------------------------------------------------------------
+
+--Add Slider-----------------------------------------------------------------------------------------------------------------------------------
+local ui = loadstring(game:HttpGet(‘http://impulse-hub.xyz/library’,true))()
+local mainUI = ui:Init(game:GetService(“CoreGui”), “Impulse Hub”)
+local Top = mainUI:AddTab(“Impulse Hub”)
+local misctab = Top:AddSection(“Misc”, false)
+local walkspeedslider = misctab:AddSlider(“walkspeed”, “Walk Speed”, {min = 0, max = 100, def = 16}, function(value)
+      game.Players.LocalPlayer.Character.Humanoid.Walkspeed = value
+end)
+-----------------------------------------------------------------------------------------------------------------------------------
+
+--Add KeyBind-----------------------------------------------------------------------------------------------------------------------------------
+local ui = loadstring(game:HttpGet(‘http://impulse-hub.xyz/library’,true))()
+local mainUI = ui:Init(game:GetService(“CoreGui”), “Impulse Hub”)
+local Top = mainUI:AddTab(“Impulse Hub”)
+local misctab = Top:AddSection(“Misc”, false)
+local noclip = misctab:AddKeybind(“noclip”,”Noclip”, Enum.KeyCode.V, function()
+      if not noclipenabled then
+            noclipenabled = true
+      else
+            noclipenabled = false
+      end
+      game:getService(“RunService”):BindToRenderStep(“”,0,function()
+            if not game:GetService(“Players”).LocalPlayer.Character:findFirstChildOfClass(“Humanoid”) then return end
+                  if noclipenabled == true then
+                        game:GetService(“Players”).LocalPlayer.Character:findFirstChildOfClass(“Humanoid”):ChangeState(11)
+                  end
+            end)
+end)
+-----------------------------------------------------------------------------------------------------------------------------------
+
+--Add TextLabel
+local ui = loadstring(game:HttpGet(‘http://impulse-hub.xyz/library’,true))()
+local mainUI = ui:Init(game:GetService(“CoreGui”), “Impulse Hub”)
+local Top = mainUI:AddTab(“Impulse Hub”)
+local misctab = Top:AddSection(“Misc”, false)
+local textlabel = misctab:AddTextLabel(“textlabel”, ‘Credits to Kunaii#8179, twink marie#5790’, true)
+local textlabel2 = misctab:AddTextLabel(“textlabelsec”, ‘Thanks for using!’, false)
+
+--Add Toggle
+local ui = loadstring(game:HttpGet(‘http://impulse-hub.xyz/library’,true))()
+local mainUI = ui:Init(game:GetService(“CoreGui”), “Impulse Hub”)
+local Top = mainUI:AddTab(“Impulse Hub”)
+local misctab = Top:AddSection(“Misc”, false)
+local walkf = misctab:AddToggle(“walkfast”, “Walk Fast”, false, function(value)
+      if value == true then
+            game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 200
+      else
+            game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+      end
+end)
+-----------------------------------------------------------------------------------------------------------------------------------
+
+--Add AddDropdown-----------------------------------------------------------------------------------------------------------------------------------
+local ui = loadstring(game:HttpGet(‘http://impulse-hub.xyz/library’,true))()
+local mainUI = ui:Init(game:GetService(“CoreGui”), “Impulse Hub”)
+local Top = mainUI:AddTab(“Impulse Hub”)
+local misctab = Top:AddSection(“Misc”, false)
+optionlist = {“Option1”, “Option2”, “Option3”}
+local optionlistdrop = misctab:AddDropdown(“Options”, optionlist, false, function(v)
+      if v == “Option1” then
+            print(“Option1 has been pressed.”)
+      elseif v == “Option2” then
+            print(“Option2 has been pressed.”)
+      elseif v == “Option3” then
+            print(“Option3 has been pressed.”)
+      end
+end)
+-----------------------------------------------------------------------------------------------------------------------------------
+
+--Add ScrollingFrame-----------------------------------------------------------------------------------------------------------------------------------
+local ui = loadstring(game:HttpGet(‘http://impulse-hub.xyz/library’,true))()
+local mainUI = ui:Init(game:GetService(“CoreGui”), “Impulse Hub”)
+local Top = mainUI:AddTab(“Impulse Hub”)
+local misctab = Top:AddSection(“Misc”, false)
+players = {}
+for i, v in pairs(game:GetService(“Players”):GetChildren()) do
+      name = v.DisplayName
+      table.insert(players, name)
+end
+local playersl = misctab:AddScrolling(“Player”, players, “None”, false, true, function(v)
+      SelectedPlayer = v
+      for key in pairs(players) do
+            players[key] = nil
+      end
+      for i, v in pairs(game:GetService(“Players”):GetChildren()) do
+            name = v.DisplayName
+            table.insert(players, name)
+      end
+end)
+-----------------------------------------------------------------------------------------------------------------------------------
