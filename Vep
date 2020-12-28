@@ -1,0 +1,36 @@
+local VLib = loadstring(game:HttpGet("https://pastebin.com/raw/hC2aTj8e"))();
+
+
+local s = VLib:Window("Jujutsu Hub","All Star", "A")
+
+local ss = s:Tab("Main")
+
+ss:Toggle("Auto Radeem Codes",function(state)
+end)
+ss:Button("Button",function()
+print("Pressed!")
+end)
+
+
+ss:Toggle("Toggle",function(t)
+print(t)
+    end)
+
+
+ss:Slider("Slider",0,100,70,function(t)
+print(t)
+end)
+
+
+ss:Dropdown("Dropdown",{"Option 1", "Option 2", "Option 3", "Option 4", "Option 5"},function(t)
+ print(t)
+ end)
+    
+    
+ss:Colorpicker("Colorpicker",Color3.fromRGB(255, 1, 1),function(t)
+ print(t)
+    end)
+
+ss:Textbox("Textbox", true,function(t)
+print(t)
+end)
