@@ -353,7 +353,7 @@ local NavBar = {
 		local NavBarShadow = Objects.new("Shadow")
 		NavBarShadow.ImageColor3 = ThisTheme.NavBar
 		NavBarShadow.Parent = NewNavBar
-		NavBarShadow.ZIndex = 50
+		NavBarShadow.ZIndex = 0
 
 		local NavBarContent = Objects.new("Frame")
 		NavBarContent.Name = "Content"
@@ -409,7 +409,7 @@ local NavBar = {
 		NavBarShadow.ImageColor3 = ThisTheme.NavBarInvert
 		NavBarShadow.ImageTransparency = 1
 		NavBarShadow.Parent = NewNavBar
-		NavBarShadow.ZIndex = 100
+		NavBarShadow.ZIndex = 0 
 
 		TweenService:Create(NewNavBar, TweenInfo.new(1), {ImageTransparency = 0}):Play()
 		TweenService:Create(NavBarShadow, TweenInfo.new(1), {ImageTransparency = 0}):Play()
@@ -478,7 +478,7 @@ local NavBar = {
 		local NavBarShadow = Objects.new("Shadow")
 		NavBarShadow.ImageColor3 = ThisTheme.NavBar
 		NavBarShadow.Parent = NewNavBar
-		NavBarShadow.ZIndex = 100
+		NavBarShadow.ZIndex = 0
 
 		local Effect1, Effect2, Effect3 = Objects.new("Frame"), Objects.new("Frame"), Objects.new("Frame")
 
