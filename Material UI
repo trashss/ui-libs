@@ -353,7 +353,7 @@ local NavBar = {
 		local NavBarShadow = Objects.new("Shadow")
 		NavBarShadow.ImageColor3 = ThisTheme.NavBar
 		NavBarShadow.Parent = NewNavBar
-		NavBarShadow.ZIndex = 50
+		NavBarShadow.ZIndex = 100
 
 		local NavBarContent = Objects.new("Frame")
 		NavBarContent.Name = "Content"
