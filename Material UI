@@ -349,12 +349,6 @@ local NavBar = {
 		NewNavBar.Position = UDim2.fromOffset(5,35)
 		NewNavBar.ImageColor3 = ThisTheme.NavBar
 		NewNavBar.ZIndex = 100
-
-		local NavBarShadow = Objects.new("Shadow")
-		NavBarShadow.ImageColor3 = ThisTheme.NavBar
-		NavBarShadow.Parent = NewNavBar
-		NavBarShadow.ZIndex = 0
-
 		local NavBarContent = Objects.new("Frame")
 		NavBarContent.Name = "Content"
 		NavBarContent.Parent = NewNavBar
@@ -404,15 +398,6 @@ local NavBar = {
 		NewNavBar.ImageColor3 = ThisTheme.NavBarAccent
 		NewNavBar.ImageTransparency = 1
 		NewNavBar.ZIndex = 100
-
-		local NavBarShadow = Objects.new("Shadow")
-		NavBarShadow.ImageColor3 = ThisTheme.NavBarInvert
-		NavBarShadow.ImageTransparency = 1
-		NavBarShadow.Parent = NewNavBar
-		NavBarShadow.ZIndex = 0 
-
-		TweenService:Create(NewNavBar, TweenInfo.new(1), {ImageTransparency = 0}):Play()
-		TweenService:Create(NavBarShadow, TweenInfo.new(1), {ImageTransparency = 0}):Play()
 
 		local NavBarContent = Objects.new("Frame")
 		NavBarContent.Name = "Content"
@@ -474,11 +459,6 @@ local NavBar = {
 
 		local NavBarMenu = Objects.new("NavBar")
 		NavBarMenu.ZIndex = 100
-
-		local NavBarShadow = Objects.new("Shadow")
-		NavBarShadow.ImageColor3 = ThisTheme.NavBar
-		NavBarShadow.Parent = NewNavBar
-		NavBarShadow.ZIndex = 0
 
 		local Effect1, Effect2, Effect3 = Objects.new("Frame"), Objects.new("Frame"), Objects.new("Frame")
 
