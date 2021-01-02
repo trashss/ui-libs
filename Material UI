@@ -353,7 +353,7 @@ local NavBar = {
 		local NavBarShadow = Objects.new("Shadow")
 		NavBarShadow.ImageColor3 = ThisTheme.NavBar
 		NavBarShadow.Parent = NewNavBar
-		NavBarShadow.ZIndex = 100
+		NavBarShadow.ZIndex = 50
 
 		local NavBarContent = Objects.new("Frame")
 		NavBarContent.Name = "Content"
@@ -702,7 +702,7 @@ end
 
 local TargetParent = RunService:IsStudio() and Player.PlayerGui or CoreGuiService
 
-function Material.Load(Config)
+function Material. (Config)
 	local Style = (Config.Style and math.clamp(Config.Style, 1, 3)) or 1
 	local Title = Config.Title or "MaterialLua"
 	local SizeX = Config.SizeX or 300
