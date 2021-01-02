@@ -173,7 +173,6 @@ local Themes = {
 
 local Types = {
 	"RoundFrame",
-	"Shadow",
 	"Circle",
 	"CircleButton",
 	"Frame",
@@ -188,7 +187,6 @@ local Types = {
 
 local ActualTypes = {
 	RoundFrame = "ImageLabel",
-	Shadow = "ImageLabel",
 	Circle = "ImageLabel",
 	CircleButton = "ImageButton",
 	Frame = "Frame",
@@ -214,15 +212,6 @@ local Properties = {
 		Image = "http://www.roblox.com/asset/?id=5554237731",
 		ScaleType = Enum.ScaleType.Slice,
 		SliceCenter = Rect.new(3,3,297,297)
-	},
-	Shadow = {
-		Name = "Shadow",
-		BackgroundTransparency = 1,
-		Image = "http://www.roblox.com/asset/?id=5554236805",
-		ScaleType = Enum.ScaleType.Slice,
-		SliceCenter = Rect.new(23,23,277,277),
-		Size = UDim2.fromScale(1,1) + UDim2.fromOffset(30,30),
-		Position = UDim2.fromOffset(-15,-15)
 	},
 	Circle = {
 		BackgroundTransparency = 1,
@@ -601,11 +590,6 @@ function TryAddMenu(Object, Menu, ReturnTable)
 				MenuOption.ZIndex = 150
 				MenuOption.Parent = MenuContent
 
-				local OptionShadow = Objects.new("Shadow")
-				OptionShadow.ImageColor3 = ThisTheme.Button
-				OptionShadow.ImageTransparency = 1
-				OptionShadow.Parent = MenuOption
-
 				local OptionValue = Objects.new("Label")
 				OptionValue.Name = "Value"
 				OptionValue.Position = UDim2.fromScale(0,0)
@@ -623,17 +607,6 @@ function TryAddMenu(Object, Menu, ReturnTable)
 					MenuToggle = false
 					TweenService:Create(MenuBuild, TweenInfo.new(0.15), {Size = UDim2.fromOffset(120,0)}):Play()
 				end)
-
-				MenuOption.MouseEnter:Connect(function()
-					TweenService:Create(MenuOption, TweenInfo.new(0.15), {ImageTransparency = 0.8}):Play()
-					TweenService:Create(OptionShadow, TweenInfo.new(0.15), {ImageTransparency = 0.8}):Play()
-				end)
-
-				MenuOption.MouseLeave:Connect(function()
-					TweenService:Create(MenuOption, TweenInfo.new(0.15), {ImageTransparency = 1}):Play()
-					TweenService:Create(OptionShadow, TweenInfo.new(0.15), {ImageTransparency = 1}):Play()
-				end)
-			end
 		end)
 		return true, MenuButton
 	end
