@@ -72,9 +72,9 @@ local Themes = {
 		ColorPicker = Color3.fromRGB(85,85,85),
 		ColorPickerAccent = Color3.fromRGB(235,235,235),
 		TextField = Color3.fromRGB(175,175,175),
-        TextFieldAccent = Color3.fromRGB(255,255,255),
-        ]]--
-        MainFrame = Color3.fromRGB(15,15,15),
+        	TextFieldAccent = Color3.fromRGB(255,255,255),
+        	]]--
+        	MainFrame = Color3.fromRGB(15,15,15),
 		Minimise = Color3.fromRGB(255,106,0),
 		MinimiseAccent = Color3.fromRGB(147,59,0),
 		Maximise = Color3.fromRGB(25,255,0),
@@ -84,7 +84,7 @@ local Themes = {
 		NavBarInvert = Color3.fromRGB(235,235,235),
 		TitleBar = Color3.fromRGB(55,55,55),
 		TitleBarAccent = Color3.fromRGB(255,255,255),
-		Overlay = Color3.fromRGB(175,175,175),
+		Overlay = Color3.fromRGB(55,55,55),
 		Banner = Color3.fromRGB(55,55,55),
 		BannerAccent = Color3.fromRGB(255,255,255),
 		Content = Color3.fromRGB(85,85,85),
