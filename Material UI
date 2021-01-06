@@ -71,7 +71,7 @@ local Themes = {
 		ColorPicker = Color3.fromRGB(85,85,85),
 		ColorPickerAccent = Color3.fromRGB(235,235,235),
 		TextField = Color3.fromRGB(175,175,175),
-        TextFieldAccent = Color3.fromRGB(255,255,255),
+		TextFieldAccent = Color3.fromRGB(255,255,255),
 	},
 	Mocha = {
 		MainFrame = Color3.fromRGB(255,255,255),
@@ -173,6 +173,7 @@ local Themes = {
 
 local Types = {
 	"RoundFrame",
+	"Shadow",
 	"Circle",
 	"CircleButton",
 	"Frame",
@@ -187,6 +188,7 @@ local Types = {
 
 local ActualTypes = {
 	RoundFrame = "ImageLabel",
+	Shadow = "ImageLabel",
 	Circle = "ImageLabel",
 	CircleButton = "ImageButton",
 	Frame = "Frame",
@@ -212,6 +214,15 @@ local Properties = {
 		Image = "http://www.roblox.com/asset/?id=5554237731",
 		ScaleType = Enum.ScaleType.Slice,
 		SliceCenter = Rect.new(3,3,297,297)
+	},
+	Shadow = {
+		Name = "Shadow",
+		BackgroundTransparency = 1,
+		Image = "http://www.roblox.com/asset/?id=5554236805",
+		ScaleType = Enum.ScaleType.Slice,
+		SliceCenter = Rect.new(23,23,277,277),
+		Size = UDim2.fromScale(1,1) + UDim2.fromOffset(30,30),
+		Position = UDim2.fromOffset(-15,-15)
 	},
 	Circle = {
 		BackgroundTransparency = 1,
@@ -338,6 +349,12 @@ local NavBar = {
 		NewNavBar.Position = UDim2.fromOffset(5,35)
 		NewNavBar.ImageColor3 = ThisTheme.NavBar
 		NewNavBar.ZIndex = 100
+
+		local NavBarShadow = Objects.new("Shadow")
+		NavBarShadow.ImageColor3 = ThisTheme.NavBar
+		NavBarShadow.Parent = NewNavBar
+		NavBarShadow.ZIndex = 100
+
 		local NavBarContent = Objects.new("Frame")
 		NavBarContent.Name = "Content"
 		NavBarContent.Parent = NewNavBar
@@ -387,6 +404,15 @@ local NavBar = {
 		NewNavBar.ImageColor3 = ThisTheme.NavBarAccent
 		NewNavBar.ImageTransparency = 1
 		NewNavBar.ZIndex = 100
+
+		local NavBarShadow = Objects.new("Shadow")
+		NavBarShadow.ImageColor3 = ThisTheme.NavBarInvert
+		NavBarShadow.ImageTransparency = 1
+		NavBarShadow.Parent = NewNavBar
+		NavBarShadow.ZIndex = 100
+
+		TweenService:Create(NewNavBar, TweenInfo.new(1), {ImageTransparency = 0}):Play()
+		TweenService:Create(NavBarShadow, TweenInfo.new(1), {ImageTransparency = 0}):Play()
 
 		local NavBarContent = Objects.new("Frame")
 		NavBarContent.Name = "Content"
@@ -448,6 +474,11 @@ local NavBar = {
 
 		local NavBarMenu = Objects.new("NavBar")
 		NavBarMenu.ZIndex = 100
+
+		local NavBarShadow = Objects.new("Shadow")
+		NavBarShadow.ImageColor3 = ThisTheme.NavBar
+		NavBarShadow.Parent = NewNavBar
+		NavBarShadow.ZIndex = 100
 
 		local Effect1, Effect2, Effect3 = Objects.new("Frame"), Objects.new("Frame"), Objects.new("Frame")
 
@@ -590,6 +621,11 @@ function TryAddMenu(Object, Menu, ReturnTable)
 				MenuOption.ZIndex = 150
 				MenuOption.Parent = MenuContent
 
+				local OptionShadow = Objects.new("Shadow")
+				OptionShadow.ImageColor3 = ThisTheme.Button
+				OptionShadow.ImageTransparency = 1
+				OptionShadow.Parent = MenuOption
+
 				local OptionValue = Objects.new("Label")
 				OptionValue.Name = "Value"
 				OptionValue.Position = UDim2.fromScale(0,0)
@@ -607,6 +643,17 @@ function TryAddMenu(Object, Menu, ReturnTable)
 					MenuToggle = false
 					TweenService:Create(MenuBuild, TweenInfo.new(0.15), {Size = UDim2.fromOffset(120,0)}):Play()
 				end)
+
+				MenuOption.MouseEnter:Connect(function()
+					TweenService:Create(MenuOption, TweenInfo.new(0.15), {ImageTransparency = 0.8}):Play()
+					TweenService:Create(OptionShadow, TweenInfo.new(0.15), {ImageTransparency = 0.8}):Play()
+				end)
+
+				MenuOption.MouseLeave:Connect(function()
+					TweenService:Create(MenuOption, TweenInfo.new(0.15), {ImageTransparency = 1}):Play()
+					TweenService:Create(OptionShadow, TweenInfo.new(0.15), {ImageTransparency = 1}):Play()
+				end)
+			end
 		end)
 		return true, MenuButton
 	end
@@ -655,7 +702,7 @@ end
 
 local TargetParent = RunService:IsStudio() and Player.PlayerGui or CoreGuiService
 
-function Material. (Config)
+function Material.Load(Config)
 	local Style = (Config.Style and math.clamp(Config.Style, 1, 3)) or 1
 	local Title = Config.Title or "MaterialLua"
 	local SizeX = Config.SizeX or 300
