@@ -71,7 +71,7 @@ local Themes = {
 		ColorPicker = Color3.fromRGB(85,85,85),
 		ColorPickerAccent = Color3.fromRGB(235,235,235),
 		TextField = Color3.fromRGB(175,175,175),
-		TextFieldAccent = Color3.fromRGB(255,255,255),
+        TextFieldAccent = Color3.fromRGB(255,255,255),
 	},
 	Mocha = {
 		MainFrame = Color3.fromRGB(255,255,255),
@@ -169,38 +169,38 @@ local Themes = {
 		TextField = Color3.fromRGB(175,175,175),
 		TextFieldAccent = Color3.fromRGB(255,255,255),
 	},
-  Dark2 = {
-    MainFrame = Color3.fromRGB(10, 10, 10),
-    Minimise = Color3.fromRGB(255, 68, 68),
-    MinimiseAccent = Color3.fromRGB(147, 59, 0),
-    Maximise = Color3.fromRGB(25, 255, 0),
-    MaximiseAccent = Color3.fromRGB(0, 255, 110),
-    NavBar = Color3.fromRGB(255, 255, 255),
-    NavBarAccent = Color3.fromRGB(255, 136, 0),
-    NavBarInvert = Color3.fromRGB(235, 235, 235),
-    TitleBar = Color3.fromRGB(25, 25, 25),
-    TitleBarAccent = Color3.fromRGB(255, 136, 0),
-    Overlay = Color3.fromRGB(25, 25, 25),
-    Banner = Color3.fromRGB(255, 136, 0),
-    BannerAccent = Color3.fromRGB(255, 255, 255),
-    Content = Color3.fromRGB(85, 85, 85),
-    Button = Color3.fromRGB(255, 136, 0),
-    ButtonAccent = Color3.fromRGB(235, 235, 235),
-    ChipSet = Color3.fromRGB(255, 136, 0),
-    ChipSetAccent = Color3.fromRGB(255, 255, 255),
-    DataTable = Color3.fromRGB(255, 136, 0),
-    DataTableAccent = Color3.fromRGB(45, 45, 45),
-    Slider = Color3.fromRGB(255, 136, 0),
-    SliderAccent = Color3.fromRGB(235, 235, 235),
-    Toggle = Color3.fromRGB(255, 136, 0),
-    ToggleAccent = Color3.fromRGB(235, 235, 235),
-    Dropdown = Color3.fromRGB(255, 136, 0),
-    DropdownAccent = Color3.fromRGB(235, 235, 235),
-    ColorPicker = Color3.fromRGB(255, 136, 0),
-    ColorPickerAccent = Color3.fromRGB(235, 235, 235),
-    TextField = Color3.fromRGB(255, 136, 0),
-    TextFieldAccent = Color3.fromRGB(235, 235, 235)
-  }
+	Dark2 = {
+		MainFrame = Color3.fromRGB(10, 10, 10),
+		Minimise = Color3.fromRGB(255, 68, 68),
+		MinimiseAccent = Color3.fromRGB(147, 59, 0),
+		Maximise = Color3.fromRGB(25, 255, 0),
+		MaximiseAccent = Color3.fromRGB(0, 255, 110),
+		NavBar = Color3.fromRGB(255, 255, 255),
+		NavBarAccent = Color3.fromRGB(255, 136, 0),
+		NavBarInvert = Color3.fromRGB(235, 235, 235),
+		TitleBar = Color3.fromRGB(25, 25, 25),
+		TitleBarAccent = Color3.fromRGB(255, 136, 0),
+		Overlay = Color3.fromRGB(25, 25, 25),
+		Banner = Color3.fromRGB(255, 136, 0),
+		BannerAccent = Color3.fromRGB(255, 255, 255),
+		Content = Color3.fromRGB(85, 85, 85),
+		Button = Color3.fromRGB(255, 136, 0),
+		ButtonAccent = Color3.fromRGB(235, 235, 235),
+		ChipSet = Color3.fromRGB(255, 136, 0),
+		ChipSetAccent = Color3.fromRGB(255, 255, 255),
+		DataTable = Color3.fromRGB(255, 136, 0),
+		DataTableAccent = Color3.fromRGB(45, 45, 45),
+		Slider = Color3.fromRGB(255, 136, 0),
+		SliderAccent = Color3.fromRGB(235, 235, 235),
+		Toggle = Color3.fromRGB(255, 136, 0),
+		ToggleAccent = Color3.fromRGB(235, 235, 235),
+		Dropdown = Color3.fromRGB(255, 136, 0),
+		DropdownAccent = Color3.fromRGB(235, 235, 235),
+		ColorPicker = Color3.fromRGB(255, 136, 0),
+		ColorPickerAccent = Color3.fromRGB(235, 235, 235),
+		TextField = Color3.fromRGB(255, 136, 0),
+		TextFieldAccent = Color3.fromRGB(235, 235, 235)
+	}
 }
 
 local Types = {
@@ -385,7 +385,7 @@ local NavBar = {
 		local NavBarShadow = Objects.new("Shadow")
 		NavBarShadow.ImageColor3 = ThisTheme.NavBar
 		NavBarShadow.Parent = NewNavBar
-		NavBarShadow.ZIndex = 100
+		NavBarShadow.ZIndex = 0
 
 		local NavBarContent = Objects.new("Frame")
 		NavBarContent.Name = "Content"
@@ -441,7 +441,7 @@ local NavBar = {
 		NavBarShadow.ImageColor3 = ThisTheme.NavBarInvert
 		NavBarShadow.ImageTransparency = 1
 		NavBarShadow.Parent = NewNavBar
-		NavBarShadow.ZIndex = 100
+		NavBarShadow.ZIndex = 0
 
 		TweenService:Create(NewNavBar, TweenInfo.new(1), {ImageTransparency = 0}):Play()
 		TweenService:Create(NavBarShadow, TweenInfo.new(1), {ImageTransparency = 0}):Play()
@@ -510,7 +510,7 @@ local NavBar = {
 		local NavBarShadow = Objects.new("Shadow")
 		NavBarShadow.ImageColor3 = ThisTheme.NavBar
 		NavBarShadow.Parent = NewNavBar
-		NavBarShadow.ZIndex = 100
+		NavBarShadow.ZIndex = 0
 
 		local Effect1, Effect2, Effect3 = Objects.new("Frame"), Objects.new("Frame"), Objects.new("Frame")
 
@@ -732,6 +732,8 @@ function CreateNewButton(ButtonConfig, Parent)
 	return Button, ButtonLabel
 end
 
+local TargetParent = RunService:IsStudio() and Player.PlayerGui or CoreGuiService
+
 function Material.Load(Config)
 	local Style = (Config.Style and math.clamp(Config.Style, 1, 3)) or 1
 	local Title = Config.Title or "MaterialLua"
@@ -749,36 +751,15 @@ function Material.Load(Config)
 		ThisTheme[KeyOverride] = ValueOverride
 	end
 
-	pcall(function() OldInstance:Destroy() end);
+	local OldInstance = TargetParent:FindFirstChild(Title)
 
-    local function GetExploit()
-        local Table = {};
-        Table.Synapse = syn;
-        Table.ProtoSmasher = pebc_create;
-        Table.Sentinel = issentinelclosure;
-        Table.ScriptWare = getexecutorname;
-    
-        for ExploitName, ExploitFunction in next, Table do
-            if (ExploitFunction) then
-                return ExploitName;
-            end;
-        end;
-        
-        return "Undefined";
-    end;
-
-    local ProtectFunctions = {};
-    ProtectFunctions.Synapse = function(GuiObject) syn.protect_gui(GuiObject); GuiObject.Parent = CoreGuiService; end;
-    ProtectFunctions.ProtoSmasher = function(GuiObject) GuiObject.Parent = get_hidden_gui(); end;
-    ProtectFunctions.Sentinel = function(GuiObject) GuiObject.Parent = CoreGuiService; end;
-    ProtectFunctions.ScriptWare = function(GuiObject) GuiObject.Parent = gethui(); end;
-    ProtectFunctions.Undefined = function(GuiObject) GuiObject.Parent = CoreGuiService; end;
+	if OldInstance then
+		OldInstance:Destroy()
+	end
 
 	local NewInstance = Objects.new("ScreenGui")
 	NewInstance.Name = Title
-    ProtectFunctions[GetExploit()](NewInstance);
-
-    getgenv().OldInstance = NewInstance;
+	NewInstance.Parent = TargetParent
 
 	MainGUI = NewInstance
 
@@ -2397,7 +2378,7 @@ function Material.Load(Config)
 					TweenService:Create(SliderDot, TweenInfo.new(0.15), {Position = UDim2.fromScale(Px,0.5) - UDim2.fromOffset(5,5)}):Play()
 					TweenService:Create(SliderFill, TweenInfo.new(0.15), {Size = UDim2.fromScale(Px, 1)}):Play()
 					SliderFadedDot.Size = UDim2.fromOffset(SizeFromScale,SizeFromScale)
-					SliderFadedDot.Position = UDim2.fromScale(0.5,0.5) - UDim2.fromOffset(SizeFromScale/2,SizeFromScale/2)
+					SliderFadedDot.Position = UDim2.fromScale(DefaultScale,0.5) - UDim2.fromOffset(SizeFromScale/2,SizeFromScale/2)
 					SliderValue.Text = tostring(Value)
 					SliderCallback(Value)
 				end)
